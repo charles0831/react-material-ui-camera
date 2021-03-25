@@ -10,7 +10,7 @@ import {
 	Typography
 } from '@material-ui/core';
 import useStyles from './style';
-import auth from '../../apis/auth';
+// import auth from '../../apis/auth';
 import storage from 'utils/storage';
 import { useToasts } from 'react-toast-notifications';
 import constants from '../../utils/constants';
@@ -48,19 +48,19 @@ const SignIn = props => {
         storage.removeStorage('email');
         storage.removeStorage('password');
       }
-      auth
-        .login(input.email, input.password)
-        .then(response => {
-          if (response.code === 200) {
-            setProgressStatus(false);
-            addToast(<label>{response.message}</label>, { appearance: 'success', autoDismissTimeout: 1000, autoDismiss: true })
-            setTimeout(function () { history.push('/cockpit'); }, 1000);
+      // auth
+      //   .login(input.email, input.password)
+      //   .then(response => {
+      //     if (response.code === 200) {
+      //       setProgressStatus(false);
+      //       addToast(<label>{response.message}</label>, { appearance: 'success', autoDismissTimeout: 1000, autoDismiss: true })
+      //       setTimeout(function () { history.push('/cockpit'); }, 1000);
 
-          } else {
-            setProgressStatus(false);
-            addToast(<label>{response.message}</label>, { appearance: 'error', autoDismissTimeout: 5000, autoDismiss: true })
-          }
-        })
+      //     } else {
+      //       setProgressStatus(false);
+      //       addToast(<label>{response.message}</label>, { appearance: 'error', autoDismissTimeout: 5000, autoDismiss: true })
+      //     }
+      //   })
     }
   };
   useEffect(() => {

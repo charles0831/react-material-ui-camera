@@ -8,7 +8,7 @@ import {
 	Typography
 } from '@material-ui/core';
 import useStyles from './style';
-import auth from '../../apis/auth';
+// import auth from '../../apis/auth';
 import { useToasts } from 'react-toast-notifications'
 import constants from '../../utils/constants';
 
@@ -36,18 +36,18 @@ const Forgot = props => {
       addToast(<label>{constants.CHECK_ALL_FIELDS}</label>, { appearance: 'error', autoDismissTimeout: 5000, autoDismiss: true })
     } else {
       setProgressStatus(true);
-      auth
-        .forgot(input.email)
-        .then(response => {
-          if (response.code === 200) {
-            setProgressStatus(false);
-            addToast(<label>{response.message}</label>, { appearance: 'success', autoDismissTimeout: 1000, autoDismiss: true })
-            setTimeout(function () { history.push('/login') }, 1000);
-          } else {
-            setProgressStatus(false);
-            addToast(<label>{response.message}</label>, { appearance: 'error', autoDismissTimeout: 5000, autoDismiss: true })
-          }
-        })
+      // auth
+      //   .forgot(input.email)
+      //   .then(response => {
+      //     if (response.code === 200) {
+      //       setProgressStatus(false);
+      //       addToast(<label>{response.message}</label>, { appearance: 'success', autoDismissTimeout: 1000, autoDismiss: true })
+      //       setTimeout(function () { history.push('/login') }, 1000);
+      //     } else {
+      //       setProgressStatus(false);
+      //       addToast(<label>{response.message}</label>, { appearance: 'error', autoDismissTimeout: 5000, autoDismiss: true })
+      //     }
+      //   })
     }
   };
 
