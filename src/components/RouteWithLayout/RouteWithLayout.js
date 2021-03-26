@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 
 const RouteWithLayout = props => {
   const { layout: Layout, title, component: Component, ...rest } = props;
-
 	useEffect(() => {
 		document.title = `${title} - PFRON`;
 	}, [title]);
-
+	
   return (
     <Route
       {...rest}

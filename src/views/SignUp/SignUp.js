@@ -7,23 +7,15 @@ import {
   FormControlLabel,
   Checkbox,
   CircularProgress,
-	Typography,
-	Grid
+	Typography
 } from '@material-ui/core';
 import useStyles from './style';
 // import auth from '../../apis/auth';
 import storage from 'utils/storage';
 import { useToasts } from 'react-toast-notifications';
 import constants from '../../utils/constants';
-import AppleIcon from '@material-ui/icons/Apple';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import { GoogleLogin } from 'react-google-login';
-// import FacebookLogin from 'react-facebook-login';
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import AppleLogin from 'react-apple-login';
-import { GoogleIcon } from 'assets/svg/icons';
 
-const SignIn = props => {
+const SignUp = props => {
   const { history } = props;
 
   const classes = useStyles();
@@ -43,7 +35,7 @@ const SignIn = props => {
   const handleRememberMe = event => {
     setCheckStatus(!checkStatus);
   };
-  const handleSignIn = event => {
+  const handleSignUp = event => {
     setTryLogin(true);
     if ((error && ((error.email && error.email.length > 0) || (error.password && error.password.length > 0))) || !input.email || !input.password) {
       addToast(<label>{constants.CHECK_ALL_FIELDS}</label>, { appearance: 'error', autoDismissTimeout: 5000, autoDismiss: true })
@@ -100,21 +92,9 @@ const SignIn = props => {
 
   const handleKeyPress = (event) => {
     if (event.charCode === 13) {
-      handleSignIn();
+      handleSignUp();
     }
   }
-
-	const responseGoogle = (response) => {
-		console.log(response);
-	}
-
-	const responseFacebook = (response) => {
-		console.log(response);
-	}
-
-	const responseApple = (response) => {
-		console.log(response);
-	}
 
   return (
     <>
@@ -144,73 +124,14 @@ const SignIn = props => {
                 label="Zapamiętaj mnie"
               />
             </div>
-            <div className={classes.buttonContainer}>							
-              <Button variant="contained" color="secondary" className={classes.btnLogin} onClick={handleSignIn}>
-								Zaloguj się
+            <div className={classes.buttonContainer}>
+              <Button variant="contained" color="secondary" className={classes.btnLogin} onClick={handleSignUp}>
+                Zaloguj się
               </Button>
-              <Link to="/register" component={RouterLink} className={classes.btnRegister}>nie masz konta? zarejestrować!</Link>
+              <Link to="/forgotpassword" component={RouterLink} className={classes.btnForgot}>Odzyskaj hasło</Link>
             </div>
-						<div className={classes.socialContainer}>
-							<Typography className={classes.loginWithSocial} >Zaloguj się za pomocą:</Typography>
-							<GoogleLogin
-								clientId={process.env.REACT_APP_GOOGLE_KEY}
-								buttonText="Google"
-								onSuccess={responseGoogle}
-								onFailure={responseGoogle}
-								cookiePolicy={'single_host_origin'}
-								render={renderProps => (									
-									<Grid container onClick={renderProps.onClick} disabled={renderProps.disabled} className={classes.btnGoogleLogin}>
-										<Grid item xs={4}>
-											<GoogleIcon/>
-										</Grid>
-										<Grid item xs={4}>
-											Google
-										</Grid>
-									</Grid>
-								)}
-							/>
-							<AppleLogin 
-								clientId={process.env.REACT_APP_APPLE_KEY}
-								redirectURI="https://redirectUrl.com"
-								className={classes.btnAppleLogin}
-								callback={responseApple}														
-								render={renderProps => (																		
-									<Grid container onClick={renderProps.onClick} disabled={renderProps.disabled} className={classes.btnAppleLogin}>
-										<Grid item xs={4}>
-											<AppleIcon/>
-										</Grid>
-										<Grid item xs={4}>
-											Apple
-										</Grid>
-									</Grid>
-								)}
-							/>
-							<FacebookLogin
-								appId={process.env.REACT_APP_FACEBOOK_KEY}
-								autoLoad={true}
-								// textButton="Facebook"
-								// fields="name,email,picture"
-								callback={responseFacebook}
-								// icon={<FacebookIcon/>}
-								render={renderProps => (																		
-									<Grid container onClick={renderProps.onClick} disabled={renderProps.disabled} className={classes.btnFacebookLogin}>
-										<Grid item xs={4}>
-											<FacebookIcon/>
-										</Grid>
-										<Grid item xs={4}>
-											Facebook
-										</Grid>
-									</Grid>
-								)}
-							/>
-						</div>
           </div>
         </div>
-				{/* <div className={classes.footerContainer}> */}
-					<Typography variant={"h2"} className={classes.footer} >
-						Przesyłając ten formularz, zgadzasz się na <a href="https://" target="_blank" className={classes.linkColor}>Warunki korzystania z usługi</a>. Aby uzyskać więcej informacji na temat polityki prywatności w zakresie przetwarzania danych osobowych, kliknij tutaj: Polityka <a href="https://" target="_blank" className={classes.linkColor}>plików cookie</a> i <a href="https://" target="_blank" className={classes.linkColor}>Polityka prywatności</a> lub skontaktuj się z nami pod adresem <a href="https://" target="_blank" className={classes.linkColor}>mail@mail.pl</a>.
-					</Typography>					
-				{/* </div> */}
       </div>
       {
         progressStatus ?
@@ -226,8 +147,8 @@ const SignIn = props => {
   );
 };
 
-SignIn.propTypes = {
+SignUp.propTypes = {
   history: PropTypes.object
 };
 
-export default withRouter(SignIn);
+export default withRouter(SignUp);

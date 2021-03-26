@@ -6,6 +6,7 @@ import { Minimal as MinimalLayout } from './layouts';
 
 import {
   SignIn as SignInView,
+	SignUp as SignUpView,
   Forgot as ForgotView,
   ResetPassword as ResetPasswordView,
   NotFound as NotFoundView
@@ -21,6 +22,13 @@ const Routes = (props) => {
         layout={MinimalLayout}
 				title='Zaloguj się'
         path="/login"
+      />
+			<RouteWithLayout
+        component={SignUpView}
+        exact
+        layout={MinimalLayout}
+				title='Zapisz się'
+        path="/register"
       />
       <RouteWithLayout
         component={ForgotView}

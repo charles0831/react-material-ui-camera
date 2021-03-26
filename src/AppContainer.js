@@ -10,9 +10,10 @@ class AppContainer extends React.Component {
 	}
 
 	checkValidity() {
-		// if (constants.unauthenticated_url.indexOf(this.props.location.pathname) !== -1) {
-		// 	this.setState({ role: 1 });
-		// } else {
+		if (constants.unauthenticated_url.indexOf(this.props.location.pathname) !== -1) {
+			this.setState({ role: 1 });
+		} 
+		// else {
 		// 	auth
 		// 		.validateToken()
 		// 		.then(response => {
@@ -58,7 +59,7 @@ class AppContainer extends React.Component {
 		}
 	}
 	render() {
-		return this.state.role !== 0 ? <>{React.cloneElement(this.props.children, { role: this.state.role })}</> : <></>;
+		return <>{React.cloneElement(this.props.children, { role: this.state.role })}</>;
 	}
 }
 

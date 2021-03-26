@@ -35,17 +35,17 @@ export default class App extends Component {
 		return (
 			<MuiPickersUtilsProvider utils={LuxonUtils} locale={pl}>
 				<ToastProvider>
-					<SiteInfoContext.Provider value={{
-						...this.state,
-						toggleContrast: this.toggleContrast
-					}} >
+			 		<SiteInfoContext.Provider value={{
+			 			...this.state,
+			 			toggleContrast: this.toggleContrast
+			 		}} >
 						<ThemeProvider theme={theme(this.state.is_contrast)}>
 							<Router history={browserHistory}>
 								<AppContainer>
 									<Routes />
 								</AppContainer>
 							</Router>
-						</ThemeProvider>
+			 			</ThemeProvider>
 					</SiteInfoContext.Provider>
 				</ToastProvider>
 			</MuiPickersUtilsProvider>

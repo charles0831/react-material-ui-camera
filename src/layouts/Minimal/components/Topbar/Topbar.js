@@ -3,17 +3,29 @@ import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, Toolbar, Button, Divider, Grid } from '@material-ui/core';
+import { HelpIcon, ContactIcon, LogoIcon } from 'assets/svg/icons';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    boxShadow: 'none'
-  }
+    boxShadow: 'none',
+		background: theme.palette.topbar_background,
+		color: 'white',
+		height: theme.spacing(10),		
+		justifyContent: 'center',
+  },
+	toolBar: {
+		display: 'flex',
+		justifyContent: 'space-between'
+	},
+	logoButton: {
+		width: '50px',
+		height: '50px'
+	}
 }));
 
 const Topbar = props => {
   const { className, ...rest } = props;
-
   const classes = useStyles();
 
   return (
@@ -23,13 +35,31 @@ const Topbar = props => {
       color="primary"
       position="fixed"
     >
-      <Toolbar>
+      <Toolbar className={classes.toolBar}>
         <RouterLink to="/">
-          <img
-            alt="Logo"
-            src="/images/logos/logo--white.svg"
-          />
+					<Button						
+						startIcon={<LogoIcon className={classes.logoButton}/>}
+					>
+					</Button>
         </RouterLink>
+				<div>
+					<Grid container alignItems="center">
+						<Divider className={classes.divider} orientation="vertical" flexItem />
+						<Button
+							className={classes.button}
+							startIcon={<HelpIcon/>}
+						>
+							Jak to działa
+						</Button>
+						<Divider orientation="vertical" flexItem />
+						<Button
+							className={classes.button}
+							startIcon={<ContactIcon/>}
+						>
+							Kontakt
+						</Button>
+					</Grid>
+			</div>
       </Toolbar>
     </AppBar>
   );

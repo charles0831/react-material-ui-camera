@@ -24,8 +24,7 @@ const useStyles = makeStyles(theme => ({
 	},
   rememberMe: {
     '& .MuiTypography-body1': {
-      color: theme.palette.gray,
-			fontSize: '1em',
+      color: theme.palette.topbar_background,
     },
     '& .MuiCheckbox-colorSecondary.Mui-checked' : {
       color: theme.palette.topbar_background
@@ -78,27 +77,13 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'right',
-    width: '100%',    
-    fontSize: '0.875em',
-    fontFamily: 'roboto',
-    fontWeight: '400',
-    lineHeight: '1.75',
-  },
-	btnRegister: {
-    marginTop: theme.spacing(2),
-    '&:hover': {
-      textDecoration: 'none'
-    },
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'center',
     width: '100%',
+    color: theme.palette.topbar_background,
     fontSize: '1.0625em',
     fontFamily: 'roboto',
     fontWeight: '400',
     lineHeight: '1.75',
-		text: 'center'
-	},
+  },
   progressContainer: {
     position: 'absolute',
     top: '50%',
@@ -108,73 +93,7 @@ const useStyles = makeStyles(theme => ({
   },
   progress: {
     color: theme.palette.pink
-  },
-	socialContainer: {
-		textAlign: 'center'
-	},
-	loginWithSocial: {
-		textAlign: 'left',
-		marginTop: theme.spacing(5),		
-		marginBottom: theme.spacing(3),		
-		fontSize: '1em'
-	},
-	footerContainer: {
-		
-	},
-	footer: {
-		fontSize: '1rem',
-		lineHeight: '30px',
-	},
-	linkColor: {
-		color: theme.palette.topbar_background,	
-	},
-	btnGoogleLogin: {
-		width: '250px',
-    border: '1.5px solid #ECECEC',
-    cursor: 'pointer',
-    margin: 'auto',
-    alignItems: 'center',
-    borderRadius: theme.spacing(0.5),
-    marginBottom: theme.spacing(1.8),
-		height: theme.spacing(4.5),
-		backgroundColor: '#ECECEC',
-		'&:hover': {
-      boxShadow:
-      '0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20)',
-    },
-	},
-	btnAppleLogin: {
-		width: '250px',
-    border: '1.5px solid #ECECEC',
-    cursor: 'pointer',
-    margin: 'auto',
-    alignItems: 'center',
-    borderRadius: theme.spacing(0.5),
-    marginBottom: theme.spacing(1.8),
-		height: theme.spacing(4.5),
-		'&:hover': {
-			backgroundColor: '#ECECEC',
-			boxShadow:
-      '0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20)',
-    },
-	},
-	btnFacebookLogin : {		
-		backgroundColor: '#4267B2',
-		width: '250px',
-    border: '1.5px solid #ECECEC',
-    cursor: 'pointer',
-    margin: 'auto',
-    alignItems: 'center',
-    borderRadius: theme.spacing(0.5),
-    marginBottom: theme.spacing(1.8),
-		height: theme.spacing(4.5),
-		color: 'white',
-		'&:hover': {
-			backgroundColor: '#819acc',
-			boxShadow:
-      '0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20)',
-    },
-	}
+  }
 }));
 
 export default useStyles;

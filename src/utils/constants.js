@@ -4,6 +4,14 @@ class constants {
     ENTER_PASSWORD = "Hasło musi mmieć co namniej 6 znaków.";
     ENTER_SAME_PASSWORD = "Hasła muszą być takie same.";
     CHECK_POLICY = "Proszę zaakceptować regulamin.";
+		unauthenticated_url = [
+			'/not-found',
+			'/login',
+			'/register',
+			'/forgotpassword',
+			'/verification',
+			'/reset_password'
+	];
 }
 
 export default new constants();
