@@ -4,7 +4,7 @@ import { SiteInfoContextConsumer } from "App";
 import { makeStyles, useTheme } from '@material-ui/styles';
 import useStyles from './style';
 import { Grid } from '@material-ui/core';
-import { Topbar } from './components';
+import { Topbar, Rightbar } from './components';
 
 const Minimal = props => {
   const { children } = props;
@@ -16,12 +16,13 @@ const Minimal = props => {
     { (props) => (
     <div className={classes.root}>
 			<Topbar/>
-      <Grid container spacing={3} className={classes.main}>
-				<Grid item xs={12} sm={4}>          
+      <Grid container spacing={0} className={classes.main}>
+				<Grid item xs={12} sm={4} className={classes.sidebar}>          
         	<main className={classes.content}>{children}</main>
-        </Grid>      
-				<Grid item xs={12} sm={8}>          
-        	<main className={classes.content}>{children}</main>
+        </Grid>   
+				<Grid item xs={12} sm={8}>
+					<Rightbar />        
+        	{/* <main className={classes.content}>{children}</main> */}
         </Grid>
       </Grid>
     </div>

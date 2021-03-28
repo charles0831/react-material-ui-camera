@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 		color: 'white',
 		height: theme.spacing(10),		
 		justifyContent: 'center',
+		zIndex: 500,
   },
 	toolBar: {
 		display: 'flex',

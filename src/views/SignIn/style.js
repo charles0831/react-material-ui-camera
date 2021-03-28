@@ -2,12 +2,12 @@ import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    marginTop: theme.spacing(3),
-		color: theme.palette.text.primary
+  root: {    
+		color: theme.palette.text.primary,
+		padding: theme.spacing(3),
+		
   },
-  welcomeContainer: {
-    marginBottom: theme.spacing(15),
+  welcomeContainer: {    
 		width: '100%'
   },
   welcome: {
@@ -118,12 +118,10 @@ const useStyles = makeStyles(theme => ({
 		marginBottom: theme.spacing(3),		
 		fontSize: '1em'
 	},
-	footerContainer: {
-		
-	},
 	footer: {
-		fontSize: '1rem',
-		lineHeight: '30px',
+		fontSize: '0.875rem',
+		lineHeight: '25px',
+		marginTop: theme.spacing(8),
 	},
 	linkColor: {
 		color: theme.palette.topbar_background,	
@@ -145,7 +143,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	btnAppleLogin: {
 		width: '250px',
-    border: '1.5px solid #ECECEC',
+    border: '1.5px solid #bfbbbb',
     cursor: 'pointer',
     margin: 'auto',
     alignItems: 'center',
@@ -158,7 +156,7 @@ const useStyles = makeStyles(theme => ({
       '0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20)',
     },
 	},
-	btnFacebookLogin : {		
+	btnFacebookLogin : {
 		backgroundColor: '#4267B2',
 		width: '250px',
     border: '1.5px solid #ECECEC',

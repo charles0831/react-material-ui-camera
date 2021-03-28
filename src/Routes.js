@@ -6,9 +6,11 @@ import { Minimal as MinimalLayout } from './layouts';
 
 import {
   SignIn as SignInView,
-	SignUp as SignUpView,
+	SignUp as SignUpView,	
+	Verification as VerificationView,
   Forgot as ForgotView,
   ResetPassword as ResetPasswordView,
+	Regulation as RegulationView,
   NotFound as NotFoundView
 } from './views';
 
@@ -24,11 +26,25 @@ const Routes = (props) => {
         path="/login"
       />
 			<RouteWithLayout
+        component={VerificationView}
+        exact
+        layout={MinimalLayout}
+				title='Weryfikacja'
+        path="/verification"
+      />
+			<RouteWithLayout
         component={SignUpView}
         exact
         layout={MinimalLayout}
-				title='Zapisz się'
+				title='Zarejestruj się'
         path="/register"
+      />
+			<RouteWithLayout
+        component={RegulationView}
+        exact
+        layout={MinimalLayout}
+				title='Regulamin'
+        path="/regulation"
       />
       <RouteWithLayout
         component={ForgotView}

@@ -1,25 +1,26 @@
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: theme.spacing(3),
+  root: {    
+    padding: theme.spacing(3),		
 		color: theme.palette.text.primary
   },
-
-  title: {
-		marginBottom: theme.spacing(4),
-		color: theme.palette.color,
+	headerContainer: {
+    marginBottom: theme.spacing(15),
+		width: '100%'
+  },
+  forgot: {
+		marginBottom: theme.spacing(3),		
+		fontSize: '1.2em',
+	},
+	forgotTitle: {
+		marginBottom: theme.spacing(5),		
 		fontSize: '1.4em'
 	},
-
-  logoContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: theme.spacing(6),
-  },
-  
+	mainContainer: {
+		display: 'flex',
+		justifyContent: 'center'
+	},
   rememberMe: {
     marginTop: '30px',
     '& .MuiTypography-body1': {
@@ -29,8 +30,12 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.color
     },
   },
+	linkColor: {
+		color: theme.palette.topbar_background,	
+	},
   buttonContainer: {
-    marginTop: theme.spacing(17),
+    marginTop: theme.spacing(5),
+		textAlign: 'center',
   },
   input_box_label: {
     marginTop: theme.spacing(6),
@@ -57,14 +62,14 @@ const useStyles = makeStyles(theme => ({
       fontSize: '1.0625em',
     },
     '&:hover': {
-      backgroundColor: theme.palette.green
+			backgroundColor: theme.palette.topbar_background
     },
     padding: '4px',
     borderRadius: '0px',
     fontWeight: '300',
-    backgroundColor: theme.palette.green,
+    backgroundColor: theme.palette.topbar_background,
     color: theme.palette.black_white,
-    width: '100%'
+    width: '60%'
   },
   btnBack: {
     marginTop: theme.spacing(2),
@@ -75,7 +80,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    color: theme.palette.pink,
+    color: theme.palette.topbar_background,
     fontSize: '1.0625em',
     fontFamily: 'roboto',
     fontWeight: '400',
@@ -88,9 +93,23 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
   },
+	footer: {
+		fontSize: '0.875rem',
+		lineHeight: '25px',
+		position: 'absolute',
+    width: '31%',
+    bottom: '25px',
+	},
   progress: {
     color: theme.palette.pink
-  }
+  },
+	option: {
+    fontSize: 15,
+    '& > span': {
+      marginRight: 10,
+      fontSize: 18,
+    },
+  },
 }));
 
 export default useStyles;

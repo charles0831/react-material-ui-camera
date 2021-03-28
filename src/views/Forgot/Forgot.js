@@ -32,6 +32,7 @@ const Forgot = props => {
   };
 
   const handleForgot = event => {
+		history.push('verification');
     if ((error && (error.email && error.email.length > 0)) || !input.email) {
       addToast(<label>{constants.CHECK_ALL_FIELDS}</label>, { appearance: 'error', autoDismissTimeout: 5000, autoDismiss: true })
     } else {
@@ -71,13 +72,12 @@ const Forgot = props => {
   return (
     <>
       <div className={classes.root}>
-        <div className={classes.mainContainer}>
-          <div className={classes.logoContainer}>
-            <img src="/images/logos/logo.png" alt="logo" />
-          </div>
-          <div className={classes.loginForm}>
-						<Typography className={classes.title} variant={"h2"}>Odzyskaj hasło</Typography>
-            <span>Podaj swój adres e-mail, aby odzyskać hasło</span>
+				<div className={classes.headerContainer}>
+					<Typography variant={"h2"} className={classes.forgot} color="primary">Odzyskaj hasło</Typography>
+					<Typography variant={"h2"} className={classes.forgotTitle} color="primary">Podaj swój adres e-mail, aby odzyskać hasło</Typography>
+				</div>
+        <div className={classes.mainContainer}>          
+          <div className={classes.loginForm}>						
             <div>
               <div className={classes.input_box_label}><label htmlFor="emailInput">E-mail</label></div>
               <input className={classes.input_box} type="email" value={input.email} name="email" id="emailInput" onChange={handleChange} onKeyPress={handleKeyPress} />
@@ -93,6 +93,9 @@ const Forgot = props => {
             </div>
           </div>
         </div>
+				<Typography variant={"h2"} className={classes.footer} >
+					Przesyłając ten formularz, zgadzasz się na <a href="https://" target="_blank" className={classes.linkColor}>Warunki korzystania z usługi</a>. Aby uzyskać więcej informacji na temat polityki prywatności w zakresie przetwarzania danych osobowych, kliknij tutaj: Polityka <a href="https://" target="_blank" className={classes.linkColor}>plików cookie</a> i <a href="https://" target="_blank" className={classes.linkColor}>Polityka prywatności</a> lub skontaktuj się z nami pod adresem <a href="https://" target="_blank" className={classes.linkColor}>mail@mail.pl</a>.
+				</Typography>
       </div>
       {
         progressStatus ?

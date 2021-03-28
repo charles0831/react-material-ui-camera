@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import {
   Button,
   Link,
-  CircularProgress
+  CircularProgress,
+	Typography
 } from '@material-ui/core';
 import useStyles from './style';
 // import auth from '../../apis/auth';
@@ -32,6 +33,7 @@ const ResetPassword = props => {
   };
 
   const handleResetPassword = event => {
+		history.push('/login');
     if ((error && ((error.password && error.password.length > 0) || (error.reset_password && error.reset_password.length > 0))) || !input.password || !input.reset_password) {
       addToast(<label>{constants.CHECK_ALL_FIELDS}</label>, { appearance: 'error', autoDismissTimeout: 5000, autoDismiss: true })
     } else {
@@ -79,30 +81,33 @@ const ResetPassword = props => {
   return (
     <>
       <div className={classes.root}>
-        <div className={classes.mainContainer}>
-          <div className={classes.logoContainer}>
-            <img src="/images/logos/logo.png" alt="logo" />
-          </div>
+				<div className={classes.headerContainer}>
+					<Typography variant={"h2"} className={classes.reset} color="primary">Odzyskaj hasło</Typography>
+					<Typography variant={"h2"} className={classes.resetTitle} color="primary">Wprowadź nowe hasło, aby odzyskać hasło</Typography>
+				</div>
+        <div className={classes.mainContainer}>        
           <div className={classes.loginForm}>
-            <span>Ustaw nowe hasło</span>
-            <div>
-              <div className={classes.input_box_label} htmlFor="passwordInput">Hasło</div>
-              <input className={classes.input_box} type="password" value={input.password} name="password" placeholder="Hasło" onChange={handleChange} onKeyPress={handleKeyPress} />
-              <div className={classes.error_log}>{error["password"] && error["password"].length > 0 && error.password}</div>
-              <div className={classes.input_box_label} htmlFor="resetpasswordInput">Powtórz hasło</div>
-              <input className={classes.input_box} type="password" value={input.reset_password} name="reset_password" onChange={handleChange} onKeyPress={handleKeyPress} />
-              <div className={classes.error_log}>{error["reset_password"] && error["reset_password"].length > 0 && error.reset_password}</div>
-            </div>
-          </div>
-          <div className={classes.buttonContainer}>
-            <div className={classes.btnLoginContainer}>
-              <Button variant="contained" color="secondary" className={classes.btnLogin} onClick={handleResetPassword}>
-                Ustaw hasło
-              </Button>
-            </div>
-
-          </div>
+						<div>
+							<span>Ustaw nowe hasło</span>
+							<div>
+								<div className={classes.input_box_label} htmlFor="passwordInput">Hasło</div>
+								<input className={classes.input_box} type="password" value={input.password} name="password" placeholder="Hasło" onChange={handleChange} onKeyPress={handleKeyPress} />
+								<div className={classes.error_log}>{error["password"] && error["password"].length > 0 && error.password}</div>
+								<div className={classes.input_box_label} htmlFor="resetpasswordInput">Powtórz hasło</div>
+								<input className={classes.input_box} type="password" value={input.reset_password} name="reset_password" onChange={handleChange} onKeyPress={handleKeyPress} />
+								<div className={classes.error_log}>{error["reset_password"] && error["reset_password"].length > 0 && error.reset_password}</div>
+							</div>
+						</div>
+						<div className={classes.buttonContainer}>
+							<Button variant="contained" color="secondary" className={classes.btnLogin} onClick={handleResetPassword}>
+								Ustaw hasło
+							</Button>
+						</div>
+					</div>
         </div>
+				<Typography variant={"h2"} className={classes.footer} >
+					Przesyłając ten formularz, zgadzasz się na <a href="https://" target="_blank" className={classes.linkColor}>Warunki korzystania z usługi</a>. Aby uzyskać więcej informacji na temat polityki prywatności w zakresie przetwarzania danych osobowych, kliknij tutaj: Polityka <a href="https://" target="_blank" className={classes.linkColor}>plików cookie</a> i <a href="https://" target="_blank" className={classes.linkColor}>Polityka prywatności</a> lub skontaktuj się z nami pod adresem <a href="https://" target="_blank" className={classes.linkColor}>mail@mail.pl</a>.
+				</Typography>
       </div>
       {
         progressStatus ?

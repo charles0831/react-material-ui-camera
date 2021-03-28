@@ -119,7 +119,7 @@ const SignIn = props => {
   return (
     <>
       <div className={classes.root}>
-				<div className={classes.welcomeContainer}>
+				<div className={classes.headerContainer}>
 					<Typography variant={"h2"} className={classes.welcome} color="primary">Witamy w aplikacji!</Typography>
 					<Typography variant={"h2"} className={classes.createLogin} color="primary">Zaloguj się i twórz własne projekty</Typography>
 				</div>
@@ -188,10 +188,7 @@ const SignIn = props => {
 							<FacebookLogin
 								appId={process.env.REACT_APP_FACEBOOK_KEY}
 								autoLoad={true}
-								// textButton="Facebook"
-								// fields="name,email,picture"
 								callback={responseFacebook}
-								// icon={<FacebookIcon/>}
 								render={renderProps => (																		
 									<Grid container onClick={renderProps.onClick} disabled={renderProps.disabled} className={classes.btnFacebookLogin}>
 										<Grid item xs={4}>
@@ -206,11 +203,9 @@ const SignIn = props => {
 						</div>
           </div>
         </div>
-				{/* <div className={classes.footerContainer}> */}
-					<Typography variant={"h2"} className={classes.footer} >
-						Przesyłając ten formularz, zgadzasz się na <a href="https://" target="_blank" className={classes.linkColor}>Warunki korzystania z usługi</a>. Aby uzyskać więcej informacji na temat polityki prywatności w zakresie przetwarzania danych osobowych, kliknij tutaj: Polityka <a href="https://" target="_blank" className={classes.linkColor}>plików cookie</a> i <a href="https://" target="_blank" className={classes.linkColor}>Polityka prywatności</a> lub skontaktuj się z nami pod adresem <a href="https://" target="_blank" className={classes.linkColor}>mail@mail.pl</a>.
-					</Typography>					
-				{/* </div> */}
+				<Typography variant={"h2"} className={classes.footer} >
+					Przesyłając ten formularz, zgadzasz się na <a href="https://" target="_blank" className={classes.linkColor}>Warunki korzystania z usługi</a>. Aby uzyskać więcej informacji na temat polityki prywatności w zakresie przetwarzania danych osobowych, kliknij tutaj: Polityka <a href="https://" target="_blank" className={classes.linkColor}>plików cookie</a> i <a href="https://" target="_blank" className={classes.linkColor}>Polityka prywatności</a> lub skontaktuj się z nami pod adresem <a href="https://" target="_blank" className={classes.linkColor}>mail@mail.pl</a>.
+				</Typography>					
       </div>
       {
         progressStatus ?
